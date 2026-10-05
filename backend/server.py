@@ -5,9 +5,10 @@ from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, ConfigDict, BeforeValidator
+from typing import Annotated, List
 import uuid
+from bson import ObjectId
 from datetime import datetime, timezone
 
 
@@ -26,16 +27,76 @@ app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 
+# MongoDB document helpers
+PyObjectId = Annotated[str, BeforeValidator(str)]
+
+
+class BaseDocument(BaseModel):
+    model_config = ConfigDict(extra="ignore", populate_by_name=True)
+
+    id: PyObjectId = Field(default_factory=lambda: str(ObjectId()), alias="_id")
+
+    def to_mongo(self):
+        return self.model_dump(by_alias=True)
+
+    @classmethod
+    def from_mongo(cls, doc):
+        if doc and "_id" in doc:
+            doc = {**doc, "_id": str(doc["_id"])}
+        return cls(**doc)
+
+
 # Define Models
 class StatusCheck(BaseModel):
-    model_config = ConfigDict(extra="ignore")  # Ignore MongoDB's _id field
-    
+    model_config = ConfigDict(extra="ignore")
+
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     client_name: str
     timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class StatusCheckCreate(BaseModel):
     client_name: str
+
+
+class RezervaciaCreate(BaseModel):
+    meno: str
+    telefon: str
+    datum: str
+    cas: str
+    hostia: int
+    poznamka: str = ""
+
+
+class Rezervacia(BaseDocument):
+    meno: str
+    telefon: str
+    datum: str
+    cas: str
+    hostia: int
+    poznamka: str = ""
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
+
+class DopytCreate(BaseModel):
+    meno: str
+    email: str
+    telefon: str
+    typ: str
+    datum: str
+    hostia: int
+    sprava: str = ""
+
+
+class Dopyt(BaseDocument):
+    meno: str
+    email: str
+    telefon: str
+    typ: str
+    datum: str
+    hostia: int
+    sprava: str = ""
+    created_at: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+
 
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
@@ -46,25 +107,51 @@ async def root():
 async def create_status_check(input: StatusCheckCreate):
     status_dict = input.model_dump()
     status_obj = StatusCheck(**status_dict)
-    
-    # Convert to dict and serialize datetime to ISO string for MongoDB
+
     doc = status_obj.model_dump()
     doc['timestamp'] = doc['timestamp'].isoformat()
-    
+
     _ = await db.status_checks.insert_one(doc)
     return status_obj
 
 @api_router.get("/status", response_model=List[StatusCheck])
 async def get_status_checks():
-    # Exclude MongoDB's _id field from the query results
     status_checks = await db.status_checks.find({}, {"_id": 0}).to_list(1000)
-    
-    # Convert ISO string timestamps back to datetime objects
+
     for check in status_checks:
         if isinstance(check['timestamp'], str):
             check['timestamp'] = datetime.fromisoformat(check['timestamp'])
-    
+
     return status_checks
+
+
+@api_router.post("/rezervacie", response_model=Rezervacia)
+async def create_rezervacia(input: RezervaciaCreate):
+    obj = Rezervacia(**input.model_dump())
+    doc = obj.to_mongo()
+    result = await db.rezervacie.insert_one(doc)
+    doc["_id"] = result.inserted_id
+    return Rezervacia.from_mongo(doc)
+
+@api_router.get("/rezervacie", response_model=List[Rezervacia])
+async def get_rezervacie():
+    docs = await db.rezervacie.find().sort("created_at", -1).to_list(500)
+    return [Rezervacia.from_mongo(d) for d in docs]
+
+
+@api_router.post("/dopyty", response_model=Dopyt)
+async def create_dopyt(input: DopytCreate):
+    obj = Dopyt(**input.model_dump())
+    doc = obj.to_mongo()
+    result = await db.dopyty.insert_one(doc)
+    doc["_id"] = result.inserted_id
+    return Dopyt.from_mongo(doc)
+
+@api_router.get("/dopyty", response_model=List[Dopyt])
+async def get_dopyty():
+    docs = await db.dopyty.find().sort("created_at", -1).to_list(500)
+    return [Dopyt.from_mongo(d) for d in docs]
+
 
 # Include the router in the main app
 app.include_router(api_router)

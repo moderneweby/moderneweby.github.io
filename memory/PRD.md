@@ -29,10 +29,11 @@ Moderný web pre fiktívnu slovenskú reštauráciu "Soľ & Pec" (kuchyňa z pec
 - Fullscreen mobilné menu s animovanými odkazmi
 - Rezervačný modal (demo): meno, telefón, dátum, čas, počet osôb, poznámka → úspešná obrazovka s číslom rezervácie
 
-## Stav (2026-02)
+## Stav (2026-02, aktualizované)
 - Hotové: všetkých 7 stránok, rezervačný modal, dopytový formulár, lightbox, marquee, parallax, lenis, SVG logo/favicon
-- Verifikácia: curl /api/ OK; screenshoty desktop 1440 + mobil 390; prekliky modal, denné menu taby, menu kotvy, event formulár, galéria lightbox, mapa — všetko funkčné, žiadny horizontal overflow
-- Poznámka: formuláre sú UKÁŽKOVÉ (nič sa neukladá), mapa aj adresa sú fiktívne/placeholdery
+- NOVÉ: formuláre reálne ukladajú do MongoDB (POST /api/rezervacie, POST /api/dopyty) a interný prehľad na /prehled ich načítava (GET); tlačidlá "Vytlačiť" na dennom menu aj lístku + @media print štýly
+- Verifikácia: curl /api/ OK; POST/GET rezervacie + dopyty OK; screenshoty desktop 1440 + mobil 390; e2e prekliky
+- Poznámka: mapa aj adresa sú fiktívne/placeholdery; /prehled nie je v navigácii (interná stránka)
 
 ## Backlog
 - P2: reálne ukladanie formulárov do Mongo + admin výpis dopytov

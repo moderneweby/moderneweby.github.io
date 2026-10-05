@@ -130,13 +130,23 @@ export default function DenneMenu() {
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-3xl ring-1 ring-leska-ink/10 p-6">
             <p className="text-sm text-leska-ink/70">Obed pre väčšiu skupinu? Zavolajte, stihneme to aj na hodinu.</p>
-            <a
-              href={PHONE_HREF}
-              data-testid="daily-call-button"
-              className="inline-flex h-11 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark"
-            >
-              <Phone size={15} /> {PHONE}
-            </a>
+            <div className="flex flex-wrap items-center gap-3">
+              <button
+                type="button"
+                data-testid="daily-print-button"
+                onClick={() => window.print()}
+                className="inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-leska-ink/20 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-leska-ink transition-all duration-300 hover:bg-leska-ink hover:text-cream print:hidden"
+              >
+                Vytlačiť menu
+              </button>
+              <a
+                href={PHONE_HREF}
+                data-testid="daily-call-button"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark"
+              >
+                <Phone size={15} /> {PHONE}
+              </a>
+            </div>
           </div>
         </Reveal>
       </section>

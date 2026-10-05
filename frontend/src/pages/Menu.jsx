@@ -81,9 +81,19 @@ export default function Menu() {
             <Leaf size={14} className="mr-2 inline text-leska" />
             Vegetariánske jedlá označujeme priamo v popise. Alergény vám radi povie každý z kuchyne.
           </p>
-          <BtnButton data-testid="menu-reserve-cta" onClick={openReservation}>
-            Rezervovať stôl
-          </BtnButton>
+          <div className="flex flex-wrap items-center gap-4 print:hidden">
+            <button
+              type="button"
+              data-testid="menu-print-button"
+              onClick={() => window.print()}
+              className="inline-flex h-12 cursor-pointer items-center gap-2 rounded-full border border-leska-ink/25 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-leska-ink transition-all duration-300 hover:bg-leska-ink hover:text-cream"
+            >
+              Vytlačiť lístok
+            </button>
+            <BtnButton data-testid="menu-reserve-cta" onClick={openReservation}>
+              Rezervovať stôl
+            </BtnButton>
+          </div>
         </div>
       </div>
     </div>

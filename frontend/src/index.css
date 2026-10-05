@@ -70,3 +70,32 @@ body {
     @apply rounded-3xl bg-white/80 ring-1 ring-leska-ink/10;
   }
 }
+
+@media print {
+  .no-print,
+  header,
+  footer,
+  [data-testid="mobile-bottom-bar"],
+  .marquee {
+    display: none !important;
+  }
+  body {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+  * {
+    color: #1a2620 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-color: #9aa694 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .field,
+  input,
+  select,
+  textarea {
+    border: none !important;
+  }
+}

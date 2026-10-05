@@ -2,7 +2,7 @@ import { MaskLines, Reveal } from "./Reveal";
 
 export default function PageHero({ eyebrow, title, sub, img, children }) {
   return (
-    <section className="relative overflow-hidden bg-leska-deep text-cream">
+    <section className="relative overflow-hidden bg-leska-deep text-cream print:hidden">
       {img && (
         <>
           <img

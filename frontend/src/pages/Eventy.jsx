@@ -33,18 +33,37 @@ const PACKAGES = [
 ];
 
 const TYPES = ["Svadba", "Rodinná oslava", "Firemné podujatie", "Iné podujatie"];
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function Eventy() {
   const [status, setStatus] = useState("idle");
   const [refCode, setRefCode] = useState("");
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => {
-      setRefCode("EP-" + Math.random().toString(36).slice(2, 6).toUpperCase());
+    const fd = Object.fromEntries(new FormData(e.target).entries());
+    try {
+      const res = await fetch(`${API}/dopyty`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          meno: fd.meno,
+          email: fd.email,
+          telefon: fd.telefon,
+          typ: fd.typ,
+          datum: fd.datum,
+          hostia: Number(fd.hostia),
+          sprava: fd.sprava || "",
+        }),
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      setRefCode("EP-" + (data._id || data.id || "").slice(-6).toUpperCase());
       setStatus("done");
-    }, 1100);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -157,13 +176,11 @@ export default function Eventy() {
                     </div>
                     <h3 className="font-serif text-3xl">Dopyt letí k peci</h3>
                     <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-leska-ink/65">
-                      Ďakujeme! Do 48 hodín sa vám ozveme s návrhom oslavy. Medzitým si pripravte chuťové receptor —
-                      bude o čom.
+                      Ďakujeme! Dopyt máme zapísaný a do 48 hodín sa vám ozveme s návrhom oslavy.
                     </p>
                     <p className="mt-5 inline-block rounded-full bg-leska/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
                       Číslo dopytu: {refCode}
                     </p>
-                    <p className="mt-4 text-xs text-leska-ink/40">Ukážkový formulár — údaje sa nikde neukladajú.</p>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -177,11 +194,11 @@ export default function Eventy() {
                   >
                     <div className="col-span-2 sm:col-span-1">
                       <label className="label" htmlFor="ev-meno">Meno a priezvisko</label>
-                      <input id="ev-meno" data-testid="event-input-name" required placeholder="Peter a Jana" className="field" />
+                      <input id="ev-meno" name="meno" data-testid="event-input-name" required placeholder="Peter a Jana" className="field" />
                     </div>
                     <div className="col-span-2 sm:col-span-1">
                       <label className="label" htmlFor="ev-typ">Typ podujatia</label>
-                      <select id="ev-typ" data-testid="event-input-type" className="field">
+                      <select id="ev-typ" name="typ" data-testid="event-input-type" className="field">
                         {TYPES.map((t) => (
                           <option key={t}>{t}</option>
                         ))}
@@ -189,24 +206,29 @@ export default function Eventy() {
                     </div>
                     <div>
                       <label className="label" htmlFor="ev-email">E-mail</label>
-                      <input id="ev-email" data-testid="event-input-email" required type="email" placeholder="peter@priklad.sk" className="field" />
+                      <input id="ev-email" name="email" data-testid="event-input-email" required type="email" placeholder="peter@priklad.sk" className="field" />
                     </div>
                     <div>
                       <label className="label" htmlFor="ev-tel">Telefón</label>
-                      <input id="ev-tel" data-testid="event-input-phone" required type="tel" placeholder="0905 123 456" className="field" />
+                      <input id="ev-tel" name="telefon" data-testid="event-input-phone" required type="tel" placeholder="0905 123 456" className="field" />
                     </div>
                     <div>
                       <label className="label" htmlFor="ev-datum">Približný dátum</label>
-                      <input id="ev-datum" data-testid="event-input-date" required type="date" className="field" />
+                      <input id="ev-datum" name="datum" data-testid="event-input-date" required type="date" className="field" />
                     </div>
                     <div>
                       <label className="label" htmlFor="ev-hostia">Počet hostí (max. 40)</label>
-                      <input id="ev-hostia" data-testid="event-input-guests" required type="number" min="6" max="40" defaultValue="30" className="field" />
+                      <input id="ev-hostia" name="hostia" data-testid="event-input-guests" required type="number" min="6" max="40" defaultValue="30" className="field" />
                     </div>
                     <div className="col-span-2">
                       <label className="label" htmlFor="ev-sprava">O oslave v skratke</label>
-                      <textarea id="ev-sprava" data-testid="event-input-message" rows="4" placeholder="Čo oslavujete, čo máte radi a čo vôbec nie…" className="field h-auto py-3" />
+                      <textarea id="ev-sprava" name="sprava" data-testid="event-input-message" rows="4" placeholder="Čo oslavujete, čo máte radi a čo vôbec nie…" className="field h-auto py-3" />
                     </div>
+                    {status === "error" && (
+                      <p data-testid="event-form-error" className="col-span-2 rounded-xl bg-terracotta/10 px-4 py-3 text-center text-sm text-terracotta">
+                        Niečo sa nepodarilo. Skúste to znova alebo nám zavolajte.
+                      </p>
+                    )}
                     <button
                       type="submit"
                       data-testid="event-form-submit"
@@ -223,9 +245,6 @@ export default function Eventy() {
                         </>
                       )}
                     </button>
-                    <p className="col-span-2 text-center text-xs text-leska-ink/40">
-                      Ukážkový formulár — žiadne údaje sa neukladajú ani neodosielajú.
-                    </p>
                   </motion.form>
                 )}
               </AnimatePresence>

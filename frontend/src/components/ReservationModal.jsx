@@ -5,6 +5,7 @@ import { useUI } from "../context/ui";
 import { EASE } from "./Reveal";
 
 const TIMES = ["11:00", "12:00", "13:00", "14:00", "15:00", "17:00", "18:00", "19:00", "20:00", "21:00"];
+const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function ReservationModal() {
   const { open, closeReservation } = useUI();
@@ -28,13 +29,30 @@ export default function ReservationModal() {
     return () => window.removeEventListener("keydown", onKey);
   }, [closeReservation]);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setStatus("sending");
-    setTimeout(() => {
-      setRefCode("SP-" + Math.random().toString(36).slice(2, 6).toUpperCase());
+    const fd = Object.fromEntries(new FormData(e.target).entries());
+    try {
+      const res = await fetch(`${API}/rezervacie`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          meno: fd.meno,
+          telefon: fd.telefon,
+          datum: fd.datum,
+          cas: fd.cas,
+          hostia: Number(fd.hostia),
+          poznamka: fd.poznamka || "",
+        }),
+      });
+      if (!res.ok) throw new Error();
+      const data = await res.json();
+      setRefCode("SP-" + (data._id || data.id || "").slice(-6).toUpperCase());
       setStatus("done");
-    }, 1100);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -82,12 +100,11 @@ export default function ReservationModal() {
                 </motion.div>
                 <h3 className="font-serif text-3xl text-leska-ink">Miesto je vaše</h3>
                 <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-leska-ink/65">
-                  Ďakujeme za rezerváciu. Potvrdenie vám príde SMS-kou krátko po tom, ako si ju zapíšeme do knihy.
+                  Rezerváciu sme zapísali do našej rezervačnej knihy. Potvrdenie vám príde SMS-kou ešte dnes.
                 </p>
                 <p className="mt-5 inline-block rounded-full bg-leska/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
                   Číslo rezervácie: {refCode}
                 </p>
-                <p className="mt-4 text-xs text-leska-ink/40">Ukážkový formulár — údaje sa nikde neukladajú.</p>
                 <button
                   type="button"
                   data-testid="reservation-success-close"
@@ -111,23 +128,23 @@ export default function ReservationModal() {
                 <form data-testid="reservation-form" onSubmit={submit} className="grid grid-cols-2 gap-4">
                   <div className="col-span-2">
                     <label className="label" htmlFor="res-meno">Meno a priezvisko</label>
-                    <input id="res-meno" data-testid="reservation-input-name" required placeholder="Anna Kováčová" className="field" />
+                    <input id="res-meno" name="meno" data-testid="reservation-input-name" required placeholder="Anna Kováčová" className="field" />
                   </div>
                   <div>
                     <label className="label" htmlFor="res-tel">Telefón</label>
-                    <input id="res-tel" data-testid="reservation-input-phone" required type="tel" placeholder="0905 123 456" className="field" />
+                    <input id="res-tel" name="telefon" data-testid="reservation-input-phone" required type="tel" placeholder="0905 123 456" className="field" />
                   </div>
                   <div>
                     <label className="label" htmlFor="res-hostia">Počet osôb</label>
-                    <input id="res-hostia" data-testid="reservation-input-guests" required type="number" min="1" max="8" defaultValue="2" className="field" />
+                    <input id="res-hostia" name="hostia" data-testid="reservation-input-guests" required type="number" min="1" max="8" defaultValue="2" className="field" />
                   </div>
                   <div>
                     <label className="label" htmlFor="res-datum">Dátum</label>
-                    <input id="res-datum" data-testid="reservation-input-date" required type="date" className="field" />
+                    <input id="res-datum" name="datum" data-testid="reservation-input-date" required type="date" className="field" />
                   </div>
                   <div>
                     <label className="label" htmlFor="res-cas">Čas</label>
-                    <select id="res-cas" data-testid="reservation-input-time" className="field" defaultValue="18:00">
+                    <select id="res-cas" name="cas" data-testid="reservation-input-time" className="field" defaultValue="18:00">
                       {TIMES.map((t) => (
                         <option key={t} value={t}>{t}</option>
                       ))}
@@ -135,8 +152,13 @@ export default function ReservationModal() {
                   </div>
                   <div className="col-span-2">
                     <label className="label" htmlFor="res-poznamka">Poznámka (oslava, detská stolička…)</label>
-                    <input id="res-poznamka" data-testid="reservation-input-note" placeholder="Napíšte nám, čo potrebujete" className="field" />
+                    <input id="res-poznamka" name="poznamka" data-testid="reservation-input-note" placeholder="Napíšte nám, čo potrebujete" className="field" />
                   </div>
+                  {status === "error" && (
+                    <p data-testid="reservation-error" className="col-span-2 rounded-xl bg-terracotta/10 px-4 py-3 text-center text-sm text-terracotta">
+                      Niečo sa nepodarilo. Skúste to znova alebo nám zavolajte.
+                    </p>
+                  )}
                   <button
                     type="submit"
                     data-testid="reservation-submit-button"
@@ -151,9 +173,6 @@ export default function ReservationModal() {
                       "Potvrdiť rezerváciu"
                     )}
                   </button>
-                  <p className="col-span-2 text-center text-xs text-leska-ink/40">
-                    Ukážkový formulár — žiadne údaje sa neukladajú ani neodosielajú.
-                  </p>
                 </form>
               </>
             )}

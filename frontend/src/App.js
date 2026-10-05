@@ -14,6 +14,7 @@ import Eventy from "./pages/Eventy";
 import ONas from "./pages/ONas";
 import Galeria from "./pages/Galeria";
 import Kontakt from "./pages/Kontakt";
+import Prehled from "./pages/Prehled";
 
 function ScrollManager() {
   const { pathname, hash } = useLocation();
@@ -86,12 +87,13 @@ export default function App() {
               <Route path="/o-nas" element={<ONas />} />
               <Route path="/galeria" element={<Galeria />} />
               <Route path="/kontakt" element={<Kontakt />} />
+              <Route path="/prehled" element={<Prehled />} />
             </Routes>
           </main>
           <Footer />
           <MobileBar />
           <ReservationModal />
-          <div className="grain" aria-hidden="true" />
+          <div className="grain no-print" aria-hidden="true" />
         </BrowserRouter>
       </UIProvider>
     </ErrorBoundary>
