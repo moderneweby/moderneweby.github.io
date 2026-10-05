@@ -34,7 +34,7 @@ export default function ONas() {
             </div>
           </Reveal>
           <Reveal delay={0.15}>
-            <span className="eyebrow text-terracotta"><span className="h-px w-8 bg-terracotta/60" /> Náš príbeh</span>
+            <span className="eyebrow text-terracotta">Náš príbeh</span>
             <h2 className="mt-5 font-serif text-3xl leading-tight tracking-tight text-leska-ink sm:text-4xl lg:text-5xl">
               Vrátili sme jedlo <span className="italic text-terracotta">k ohňu</span>
             </h2>
@@ -68,7 +68,7 @@ export default function ONas() {
 
         <div className="mt-24 grid items-center gap-14 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
-            <span className="eyebrow text-terracotta"><span className="h-px w-8 bg-terracotta/60" /> Lokálni dodávatelia</span>
+            <span className="eyebrow text-terracotta">Lokálni dodávatelia</span>
             <h2 className="mt-5 font-serif text-3xl leading-tight tracking-tight text-leska-ink sm:text-4xl">
               Známe všetkých <span className="italic text-terracotta">menom</span>
             </h2>

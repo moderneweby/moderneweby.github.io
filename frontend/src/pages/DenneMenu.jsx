@@ -115,10 +115,10 @@ export default function DenneMenu() {
         <Reveal delay={0.1}>
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
             <div className="rounded-3xl bg-leska-deep p-7 text-cream">
-              <h3 className="font-serif text-xl">Lunch set</h3>
+              <h3 className="font-serif text-xl">Obedové menu</h3>
               <p className="mt-2 text-sm leading-relaxed text-cream/70">
-                Polievka + ľubovoľný hlavný chod od <span className="font-semibold text-zlato">11,20 €</span>. K obedu
-                vždy pribalíme kváskový chlieb z pece a dojednáme si to do 45 minút.
+                Polievka a ľubovoľný hlavný chod spolu od <span className="font-semibold text-zlato">11,20 €</span>. K
+                obedu dostanete kváskový chlieb z pece a na stole ho máte do 45 minút.
               </p>
             </div>
             <div className="rounded-3xl bg-smotana-dusk p-7">

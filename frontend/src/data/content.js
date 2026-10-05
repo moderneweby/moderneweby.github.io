@@ -138,7 +138,7 @@ export const MENU = [
     title: "Dezerty",
     items: [
       { n: "Teplé slivky z pece", d: "hnedé maslo, škoricový crumble, smotana", p: "6,90", pec: true, img: IMG.plums },
-      { n: "Čokoládový fondant", d: "solený karamel, vanilková zmrzlina", p: "7,20", img: IMG.dessertDark },
+      { n: "Čokoládový fondant", d: "slaný karamel, vanilková zmrzlina", p: "7,20", img: IMG.dessertDark },
       { n: "Parená buchta s domácim lekvárom", d: "opekané mandle, šľahačka", p: "6,50", img: IMG.buchta },
       { n: "Kváskový syrník", d: "pečené lieskovce, med z Malých Karpát", p: "6,80", img: IMG.cheesecake },
     ],

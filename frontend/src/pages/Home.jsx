@@ -11,7 +11,7 @@ import { IMG, PHONE, PHONE_HREF } from "../data/content";
 const DISHES = [
   { img: IMG.meatPan, n: "Polovičné rebrá z pece na dreve", p: "18,90", tag: "Z pece" },
   { img: IMG.plateDark, n: "Hovädzí tatarák na kváskovom chlebe", p: "12,50", tag: "Predjedlo" },
-  { img: IMG.dessertDark, n: "Čokoládový fondant, solený karamel", p: "7,20", tag: "Dezert" },
+  { img: IMG.dessertDark, n: "Čokoládový fondant, slaný karamel", p: "7,20", tag: "Dezert" },
 ];
 
 const VALUES = [
@@ -126,7 +126,7 @@ export default function Home() {
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Reveal>
-              <span className="eyebrow text-terracotta"><span className="h-px w-8 bg-terracotta/60" /> Naša filozofia</span>
+              <span className="eyebrow text-terracotta">Naša filozofia</span>
               <h2 className="mt-5 font-serif text-3xl leading-tight tracking-tight text-leska-ink sm:text-4xl lg:text-5xl">
                 Tri prísady, ktoré <span className="italic text-terracotta">menia chuť</span>
               </h2>
@@ -166,7 +166,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <Reveal>
-              <span className="eyebrow text-zlato"><span className="h-px w-8 bg-zlato/70" /> Z pece dnes</span>
+              <span className="eyebrow text-zlato">Z pece dnes</span>
               <h2 className="mt-5 max-w-lg font-serif text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 Čo z ohňa práve <span className="italic text-zlato">vyzrelo</span>
               </h2>
@@ -215,7 +215,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 py-24 sm:px-8 sm:py-32 lg:grid-cols-2">
           <Reveal className="order-2 lg:order-1">
-            <span className="eyebrow text-terracotta"><span className="h-px w-8 bg-terracotta/60" /> Eventy &amp; svadby</span>
+            <span className="eyebrow text-terracotta">Eventy &amp; svadby</span>
             <h2 className="mt-5 font-serif text-3xl leading-tight tracking-tight text-leska-ink sm:text-4xl lg:text-5xl">
               Malé svadby do 40 hostí. <span className="italic text-terracotta">Veľké v detailoch.</span>
             </h2>

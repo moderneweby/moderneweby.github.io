@@ -78,7 +78,7 @@ export default function Prehled() {
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           <Reveal delay={0.1}>
             <span className="eyebrow text-zlato">
-              <span className="h-px w-8 bg-zlato/70" /> Interný prehľad
+              Interný prehľad
             </span>
             <h1 className="mt-5 font-serif text-4xl tracking-tight sm:text-5xl">Rezervačná kniha</h1>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream/70">

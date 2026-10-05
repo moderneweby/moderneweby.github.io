@@ -137,7 +137,7 @@ export default function Eventy() {
       <section className="bg-leska-deep py-20 text-cream sm:py-28">
         <div className="mx-auto grid max-w-6xl items-start gap-14 px-5 sm:px-8 lg:grid-cols-2">
           <Reveal>
-            <span className="eyebrow text-zlato"><span className="h-px w-8 bg-zlato/70" /> Nezáväzný dopyt</span>
+            <span className="eyebrow text-zlato">Nezáväzný dopyt</span>
             <h2 className="mt-5 font-serif text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 Porozprávajte nám <span className="italic text-zlato">o svojom sviatku</span>
             </h2>

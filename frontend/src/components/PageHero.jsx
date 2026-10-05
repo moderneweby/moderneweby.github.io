@@ -17,7 +17,6 @@ export default function PageHero({ eyebrow, title, sub, img, children }) {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8 pb-16 pt-32 sm:pb-24 sm:pt-44">
         <Reveal delay={0.1}>
           <span className="eyebrow text-zlato">
-            <span className="h-px w-8 bg-zlato/70" />
             {eyebrow}
           </span>
         </Reveal>
