@@ -1,0 +1,174 @@
+{
+  "project_name": "Soľ & Pec",
+  "tagline": "Poctivá kuchyňa z pece na drevo | Rodinné oslavy a svadby do 40 hostí",
+  "brand_identity": {
+    "concept": "Warm artisanal Slovak culinary experience centered on wood-fired flame & craft cooking.",
+    "tone_of_voice": "Elegantly welcoming, rustic-refined, poetic Slovak prose celebrating fire, salt, flour, and traditional hospitality.",
+    "target_audience": "Gourmets, families celebrating milestones, couples looking for boutique intimate wedding venues (up to 40 guests)."
+  },
+  "color_palette": {
+    "primary_dark_green": "#2F4A3A",
+    "background_cream": "#F5EFE6",
+    "accent_terracotta": "#B5532F",
+    "neutral_dark_charcoal": "#1A2620",
+    "neutral_warm_gray": "#E8DFD3",
+    "gold_warm_glow": "#D4A359",
+    "usage_rules": {
+      "backgrounds": "Cream (#F5EFE6) as default light surface, Dark Green (#2F4A3A) for hero, dark cards, footer, and spotlight sections.",
+      "accents": "Terracotta (#B5532F) strictly for primary action buttons, hover highlights, active badges, and warm fire cues.",
+      "text": "Dark Charcoal (#1A2620) on Cream backgrounds; Cream (#F5EFE6) / Soft Warm Gray (#E8DFD3) on Dark Green backgrounds.",
+      "glassmorphism": "backdrop-blur-xl bg-[#2F4A3A]/80 or bg-[#F5EFE6]/85 with 1px border-white/20 or border-[#2F4A3A]/10."
+    }
+  },
+  "typography": {
+    "heading_font": "Playfair Display, serif",
+    "body_font": "Inter, sans-serif",
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight font-serif",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold tracking-tight",
+      "h3_subsection": "text-xl sm:text-2xl font-serif font-medium",
+      "body_main": "text-base sm:text-lg leading-relaxed font-sans",
+      "caption_label": "text-xs sm:text-sm uppercase tracking-[0.2em] font-medium font-sans opacity-90"
+    }
+  },
+  "pages_structure": [
+    {
+      "id": "home",
+      "title": "Úvod (Home)",
+      "route": "/",
+      "sections": [
+        "Hero with kinetic masked text, video/photo flame backdrop, reservation CTA & view menu button",
+        "Philosophical intro: Oheň, Soľ & Čas (Fire, Salt & Time)",
+        "Dnešný výber šéfkuchára (Chef's Daily Highlight teaser)",
+        "Boutique Eventy & Svadby showcase (up to 40 guests)",
+        "Slow Editorial Marquee banner",
+        "Hostia o nás (Customer testimonials carousel)",
+        "Quick reservation trigger block"
+      ]
+    },
+    {
+      "id": "daily_menu",
+      "title": "Denné menu (Daily Lunch Menu)",
+      "route": "/denne-menu",
+      "sections": [
+        "Header with current week date range & printable/download note",
+        "Tabbed day selector (Pondelok - Piatok) with current day autoselected",
+        "Daily soup + main dish options with allergen tags & prices",
+        "Special chef's lunch dessert addon",
+        "Takeaway ordering notice"
+      ]
+    },
+    {
+      "id": "full_menu",
+      "title": "Celé menu (À la carte Menu)",
+      "route": "/menu",
+      "sections": [
+        "Category navigation sticky bar (Predjedlá, Polievky, Hlavné jedlá z pece, Špeciality, Dezerty, Nápoje & Víno)",
+        "Interactive filter (Mäsové, Vegetariánske, Bezlepkové)",
+        "Detailed dishes cards with ingredients, pairings, prices in EUR",
+        "Somelier wine pairings modal / tooltip",
+        "Wood-fired oven process badge on highlighted items"
+      ]
+    },
+    {
+      "id": "events",
+      "title": "Eventy & Svadby (Private Events & Intimate Weddings)",
+      "route": "/eventy-a-svadby",
+      "sections": [
+        "Atmospheric hero (Kapacita do 40 osôb)",
+        "Event Packages breakdown (Rodinné oslavy, Malá svadba, Firemná večera)",
+        "3D/Photo spatial seating & decor preview grid",
+        "Interactive Event Inquiry Form (Nezáväzný dopyt) with guest count, date, package selection, and instant success confirmation"
+      ]
+    },
+    {
+      "id": "about",
+      "title": "O nás (About Us & Craft)",
+      "route": "/o-nas",
+      "sections": [
+        "Priebeh remesla: Od kvásku po drevo (Our philosophy)",
+        "Náš tím & majster pece (Our chef & team profiles)",
+        "Lokálni dodávatelia (Local Slovak farmers & suppliers map/grid)",
+        "Photo mosaic of our brick oven built in 1928"
+      ]
+    },
+    {
+      "id": "gallery",
+      "title": "Galéria (Photo Gallery)",
+      "route": "/galeria",
+      "sections": [
+        "Filterable masonry gallery (Všetko, Jedlá z pece, Interiér & Atmosféra, Oslavy & Svadby)",
+        "Full-screen Lightbox with caption storytelling"
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Kontakt (Contact & Map)",
+      "route": "/kontakt",
+      "sections": [
+        "Otváracie hodiny (Opening hours card)",
+        "Interactive styled Map / Address in Pezinok / Malé Karpaty region",
+        "Direct contact card (Telefón, Email, Parkovanie, MHD)",
+        "Quick table reservation widget"
+      ]
+    }
+  ],
+  "mobile_first_design": {
+    "bottom_action_bar": {
+      "fixed": true,
+      "z_index": "z-50",
+      "buttons": [
+        {
+          "label": "Zavolať",
+          "href": "tel:+421901234567",
+          "variant": "secondary",
+          "bg": "bg-[#2F4A3A]",
+          "text": "text-[#F5EFE6]",
+          "icon": "PhoneCall",
+          "data_testid": "mobile-bottom-bar-call-button"
+        },
+        {
+          "label": "Rezervovať",
+          "modal_trigger": "reservation_modal",
+          "variant": "primary",
+          "bg": "bg-[#B5532F]",
+          "text": "text-white",
+          "icon": "Calendar",
+          "data_testid": "mobile-bottom-bar-reserve-button"
+        }
+      ]
+    },
+    "touch_targets": "Minimum 48px height on buttons and inputs",
+    "navigation_drawer": "Slide-over drawer with full menu routes and quick call button"
+  },
+  "interactive_modals": {
+    "reservation_modal": {
+      "id": "reservation-modal",
+      "fields": ["Počet hostí (1-40)", "Dátum", "Čas", "Meno a priezvisko", "Telefón", "Email", "Špeciálne požiadavky"],
+      "demo_behavior": "Displays interactive toast & celebratory confirmation card with reference code upon submit without requiring backend database."
+    }
+  },
+  "image_assets": {
+    "hero_wood_oven": "https://images.unsplash.com/photo-1622880833523-7cf1c0bd4296?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "flame_detail": "https://images.unsplash.com/photo-1606152196365-d1ce5ea838b5?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "gourmet_dish_1": "https://images.unsplash.com/photo-1674649203068-e9fd9c4a5620?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "gourmet_dish_2": "https://images.unsplash.com/photo-1695555438641-7ccdace35d78?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "gourmet_dish_3": "https://images.unsplash.com/photo-1777994505589-75c2028c80fa?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "wedding_table_1": "https://images.unsplash.com/photo-1643066873293-686f7370f9d7?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "wedding_table_2": "https://images.unsplash.com/photo-1643066873294-b547ce3c135c?crop=entropy&cs=srgb&fm=jpg&q=85",
+    "wedding_hall": "https://images.unsplash.com/photo-1723832348105-2e69f948135a?crop=entropy&cs=srgb&fm=jpg&q=85"
+  },
+  "motion_and_interactions": {
+    "libraries": ["framer-motion", "lucide-react", "sonner"],
+    "hero_reveal": "Masked line-by-line staggered text reveal on load",
+    "marquee": "Infinite smooth scrolling ribbon using framer-motion or CSS animation",
+    "scroll_parallax": "Smooth opacity and subtle transform shifts on scroll",
+    "micro_interactions": "Button press scale (0.98), hover lift (-2px), soft glow on focus"
+  },
+  "general_ui_ux_guidelines": {
+    "data_testid_rule": "ALL interactive components (buttons, tabs, inputs, links, modals) MUST include descriptive data-testid attributes.",
+    "language": "100% Slovak language text across all pages and UI elements.",
+    "contrast_and_accessibility": "Ensure text contrast meets APCA standard (Cream text on Dark Green, Dark Charcoal on Cream).",
+    "no_raw_transparent_headers": "Header MUST use backdrop-blur-md with subtle background opacity (bg-[#2F4A3A]/90 or bg-[#F5EFE6]/90) to ensure readability."
+  }
+}
