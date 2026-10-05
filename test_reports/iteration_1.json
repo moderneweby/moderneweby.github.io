@@ -1,0 +1,19 @@
+{
+  "summary": "Frontend-only regression verification for 3 reported bug fixes on Soľ & Pec site. All checks PASSED: (1) No 'h-px w-8' decorative line elements exist on /, /menu, /denne-menu, /eventy-a-svadby, /o-nas, /galeria, /kontakt. (2) 'solený' nowhere on / or /menu; home-dish-card-2 reads 'Čokoládový fondant, slaný karamel' and menu-item-dezerty-1 description contains 'slaný karamel, vanilková zmrzlina'. (3) /denne-menu shows 'Obedové menu' heading and the exact new sentence incl. 'Polievka a ľubovoľný hlavný chod spolu od 11,20 €' + 'kváskový chlieb' + '45 minút'; 'Lunch set' and 'dojednáme' absent. Reservation modal opens via header-reserve-button. No em dash '—' in visible content. No console errors (only two benign scroll-container warnings).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [],
+  "action_items": [],
+  "critical_code_review_comments": [],
+  "updated_files": [],
+  "success_rate": {"backend": "n/a", "frontend": "100%"},
+  "seed_data_creation": "none",
+  "retest_needed": false,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "All 3 bug-fix verifications passed across all specified pages. Reservation modal opens correctly. Benign console warnings exist about scroll container non-static position (likely from a lib) - not a bug.",
+  "rca of the issue": "n/a - verification only"
+}
