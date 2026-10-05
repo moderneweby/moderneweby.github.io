@@ -22,7 +22,7 @@ export default function MobileBar() {
           type="button"
           data-testid="mobile-bottom-bar-reserve-button"
           onClick={openReservation}
-          className="flex h-14 cursor-pointer items-center justify-center gap-2 bg-terracotta text-sm font-semibold tracking-wide text-[#FDF6ED] active:bg-terracotta-dark"
+          className="flex h-14 cursor-pointer items-center justify-center gap-2 bg-terracotta text-sm font-semibold tracking-wide text-[#14110E] active:bg-terracotta-dark"
         >
           <Calendar size={17} /> Rezervovať
         </button>

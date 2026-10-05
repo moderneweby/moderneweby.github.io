@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const VARIANTS = {
   primary:
-    "bg-terracotta text-[#FDF6ED] hover:bg-terracotta-dark hover:-translate-y-0.5 shadow-[0_10px_30px_-12px_rgba(181,83,47,0.65)]",
+    "bg-terracotta text-[#14110E] hover:bg-terracotta-dark hover:-translate-y-0.5 shadow-[0_10px_30px_-12px_rgba(226,105,31,0.65)]",
   outline: "border border-cream/40 text-cream hover:bg-cream hover:text-leska-deep hover:-translate-y-0.5",
-  dark: "bg-leska text-cream hover:bg-leska-deep hover:-translate-y-0.5",
-  light: "bg-cream text-leska-ink hover:bg-white hover:-translate-y-0.5",
+  dark: "bg-cream text-leska-deep hover:bg-white hover:-translate-y-0.5",
+  light: "bg-cream text-leska-deep hover:bg-white hover:-translate-y-0.5",
 };
 
 function classes(variant, extra) {

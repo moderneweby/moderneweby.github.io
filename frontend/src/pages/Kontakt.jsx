@@ -12,7 +12,7 @@ export default function Kontakt() {
       <PageHero
         eyebrow="Kontakt"
         title={["Nájdite nás", "pri peci."]}
-        sub="Zavítajte, zavolajte alebo napíšte — radi vám stôl pri peci prichystáme."
+        sub="Zavítajte, zavolajte alebo napíšte. Radi vám stôl pri peci prichystáme."
         img={IMG.interiorCandle}
       />
 
@@ -24,13 +24,13 @@ export default function Kontakt() {
                 <h2 className="font-serif text-2xl text-leska-ink">Kde nás nájdete</h2>
                 <ul className="mt-6 space-y-5 text-sm">
                   <li className="flex items-start gap-3.5" data-testid="contact-address">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-leska/5 text-terracotta">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream/5 text-terracotta">
                       <MapPin size={17} />
                     </span>
                     <span className="pt-1.5 leading-relaxed text-leska-ink/75">{ADDRESS}</span>
                   </li>
                   <li className="flex items-start gap-3.5">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-leska/5 text-terracotta">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream/5 text-terracotta">
                       <Phone size={17} />
                     </span>
                     <a href={PHONE_HREF} data-testid="contact-phone-link" className="pt-1.5 text-leska-ink/75 transition-colors hover:text-terracotta">
@@ -38,7 +38,7 @@ export default function Kontakt() {
                     </a>
                   </li>
                   <li className="flex items-start gap-3.5">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-leska/5 text-terracotta">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream/5 text-terracotta">
                       <Mail size={17} />
                     </span>
                     <a href={`mailto:${EMAIL}`} data-testid="contact-email-link" className="pt-1.5 text-leska-ink/75 transition-colors hover:text-terracotta">
@@ -69,7 +69,7 @@ export default function Kontakt() {
           <Reveal delay={0.15} className="lg:col-span-3">
             <div className="h-full min-h-[380px] overflow-hidden rounded-3xl ring-1 ring-leska-ink/10">
               <iframe
-                title="Mapa — Soľ & Pec"
+                title="Mapa Soľ & Pec"
                 data-testid="contact-map-embed"
                 src="https://maps.google.com/maps?q=Hlavn%C3%A9%20n%C3%A1mestie,%20Bratislava&z=16&output=embed"
                 className="h-full min-h-[380px] w-full grayscale-[35%] sepia-[18%]"
@@ -77,16 +77,16 @@ export default function Kontakt() {
               />
             </div>
             <p className="mt-3 text-xs text-leska-ink/45">
-              Soľ &amp; Pec je fiktívna reštaurácia — mapa je len ukážková.
+              Soľ &amp; Pec je fiktívna reštaurácia, mapa je len ukážková.
             </p>
           </Reveal>
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-14 flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-terracotta p-8 text-[#FDF6ED] sm:p-12">
+          <div className="mt-14 flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-terracotta p-8 text-[#14110E] sm:p-12">
             <div>
               <h2 className="font-serif text-2xl sm:text-3xl">Stôl pri peci? Radi vám ho necháme.</h2>
-              <p className="mt-2 text-sm text-[#FDF6ED]/85">Rezervujte online alebo nám rovno zavolajte.</p>
+              <p className="mt-2 text-sm text-[#14110E]/80">Rezervujte online alebo nám rovno zavolajte.</p>
             </div>
             <div className="flex flex-wrap gap-4">
               <BtnButton variant="light" data-testid="contact-reserve-cta" onClick={openReservation}>
@@ -95,7 +95,7 @@ export default function Kontakt() {
               <a
                 href={PHONE_HREF}
                 data-testid="contact-call-cta"
-                className="inline-flex h-12 items-center gap-2.5 rounded-full border border-[#FDF6ED]/50 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:bg-[#FDF6ED] hover:text-terracotta"
+                className="inline-flex h-12 items-center gap-2.5 rounded-full border border-[#14110E]/40 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:bg-[#14110E] hover:text-terracotta"
               >
                 <Phone size={15} /> Zavolať
               </a>

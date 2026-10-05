@@ -39,3 +39,10 @@ Moderný web pre fiktívnu slovenskú reštauráciu "Soľ & Pec" (kuchyňa z pec
 - P2: reálne ukladanie formulárov do Mongo + admin výpis dopytov
 - P2: fotogaléria s vlastnými fotkami klienta
 - P2: SEO (Open Graph, JSON-LD Restaurant) + sitemap
+
+## 2026-07 Redizajn na tmavú paletu (na žiadosť používateľa)
+- Paleta zmenená zo zelenej/terakoty na čierno-hnedú (#171412 pozadie, #0D0C0A hlboké sekcie, krémový text #F3ECE0) s ohnivým akcentom #E2691F a zlatou #DBA85C. Tokeny v tailwind.config.js (leska/smotana/terracotta/zlato) zachované, zmenené len hodnoty.
+- Logo a favicon prefarbené, theme-color aktualizovaný.
+- Odstránené všetky pomlčky "—" z textov (vety preformulované), dezert dňa má teraz štruktúru { n, p }.
+- Sekcia Oheň / Soľ / Čas na úvode: ikony nahradené fotografiami (žeravé uhlíky, soľ, presýpacie hodiny), číslovanie 01–03 odstránené.
+- Stále menu: fotografie pri predjedlách, hlavných jedlách a dezertoch (15 ks, pole `img` v MENU v content.js). Nápoje bez obrázkov.

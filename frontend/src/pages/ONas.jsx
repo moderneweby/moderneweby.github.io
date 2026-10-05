@@ -6,8 +6,8 @@ import { IMG } from "../data/content";
 const STEPS = [
   { n: "01", t: "Drevo", d: "Dub a buk z okolitých lesov. Topíme ráno, aby bola pec do obeda poriadne rozohriata." },
   { n: "02", t: "Kvas", d: "Náš kvások sa volá František a má viac ako desať rokov. Chlieb z neho rastie 48 hodín." },
-  { n: "03", t: "Oheň", d: "Pec z roku 1928 drží 312 °C. Peče sa v nej chlieb, mäso aj dezerty — každé pri svojom teple." },
-  { n: "04", t: "Stôl", d: "Z pece priamo na stôl. Bez výhrievania a bez čakania — presne takto to chutí najlepšie." },
+  { n: "03", t: "Oheň", d: "Pec z roku 1928 drží 312 °C. Peče sa v nej chlieb, mäso aj dezerty, každé pri svojom teple." },
+  { n: "04", t: "Stôl", d: "Z pece priamo na stôl. Bez výhrievania a bez čakania. Presne takto to chutí najlepšie." },
 ];
 
 const SUPPLIERS = [
@@ -22,7 +22,7 @@ export default function ONas() {
       <PageHero
         eyebrow="O nás"
         title={["Rodina, ktorá", "topí pec."]}
-        sub="Soľ & Pec je malá reštaurácia s veľkou pecou z roku 1928. Varíme v nej sami — rodičia, deti a jeden večný kvások."
+        sub="Soľ & Pec je malá reštaurácia s veľkou pecou z roku 1928. Varíme v nej sami: rodičia, deti a jeden večný kvások."
         img={IMG.breadHands}
       />
 
@@ -40,7 +40,7 @@ export default function ONas() {
             </h2>
             <div className="mt-6 space-y-5 leading-relaxed text-leska-ink/70">
               <p>
-                Kým sme otvorili Soľ &amp; Pec, roky sme si hovorili, že najlepšie jedlo sme jedli u babičky — v
+                Kým sme otvorili Soľ &amp; Pec, roky sme si hovorili, že najlepšie jedlo sme jedli u babičky, v
                 tehlovej peci, ktorá voňala drevom aj celou kuchyňou. Keď sme po necelom desaťročí hľadania našli
                 opustený dom s pecou z roku 1928, vedeli sme, že to má byť naše.
               </p>
@@ -97,10 +97,10 @@ export default function ONas() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-24 flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-terracotta p-8 text-[#FDF6ED] sm:p-12">
+          <div className="mt-24 flex flex-wrap items-center justify-between gap-6 rounded-3xl bg-terracotta p-8 text-[#14110E] sm:p-12">
             <div>
               <h2 className="max-w-lg font-serif text-2xl sm:text-3xl">Pozrite sa, ako to varíme.</h2>
-              <p className="mt-2 text-sm text-[#FDF6ED]/85">Oheň, múka a klenby — fotky, po ktorých sa vrátite ochutnať.</p>
+              <p className="mt-2 text-sm text-[#14110E]/80">Oheň, múka a klenby. Fotky, po ktorých sa vrátite ochutnať.</p>
             </div>
             <BtnLink to="/galeria" variant="light" data-testid="about-gallery-cta">
               Do galérie

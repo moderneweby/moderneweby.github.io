@@ -33,13 +33,13 @@ export default function DenneMenu() {
               data-testid={`day-tab-${d.den.toLowerCase()}`}
               onClick={() => setActive(i)}
               className={`relative cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 ${
-                active === i ? "text-cream" : "text-leska-ink/70 hover:text-leska-ink"
+                active === i ? "text-leska-deep" : "text-leska-ink/70 hover:text-leska-ink"
               }`}
             >
               {active === i && (
                 <motion.span
                   layoutId="day-pill"
-                  className="absolute inset-0 rounded-full bg-leska"
+                  className="absolute inset-0 rounded-full bg-cream"
                   transition={{ type: "spring", stiffness: 400, damping: 34 }}
                 />
               )}
@@ -100,11 +100,15 @@ export default function DenneMenu() {
             </div>
           </div>
 
-          <div className="mt-10 rounded-2xl bg-leska/5 p-5">
-            <p className="flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-leska/70">
+          <div className="mt-10 rounded-2xl bg-cream/5 p-5">
+            <p className="flex items-center gap-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-zlato">
               <CakeSlice size={14} /> Dezert dňa
             </p>
-            <p className="mt-2 font-serif text-lg text-leska-ink">{day.dezert}</p>
+            <div className="mt-2 flex items-baseline">
+              <p className="font-serif text-lg text-leska-ink">{day.dezert.n}</p>
+              <span className="dotted-leader" />
+              <span className="whitespace-nowrap font-serif text-lg italic text-terracotta">{day.dezert.p} €</span>
+            </div>
           </div>
         </motion.div>
 
@@ -120,7 +124,7 @@ export default function DenneMenu() {
             <div className="rounded-3xl bg-smotana-dusk p-7">
               <h3 className="font-serif text-xl text-leska-ink">Víkend?</h3>
               <p className="mt-2 text-sm leading-relaxed text-leska-ink/70">
-                V sobotu a v nedeľu denné menu nevaríme — pozrite sa na{" "}
+                V sobotu a v nedeľu denné menu nevaríme, pozrite sa na{" "}
                 <a href="/menu" data-testid="daily-weekend-menu-link" className="font-semibold text-terracotta underline-offset-4 hover:underline">
                   celý jedálny lístok
                 </a>
@@ -135,14 +139,14 @@ export default function DenneMenu() {
                 type="button"
                 data-testid="daily-print-button"
                 onClick={() => window.print()}
-                className="inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-leska-ink/20 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-leska-ink transition-all duration-300 hover:bg-leska-ink hover:text-cream print:hidden"
+                className="inline-flex h-11 cursor-pointer items-center gap-2 rounded-full border border-leska-ink/20 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-leska-ink transition-all duration-300 hover:bg-cream hover:text-leska-deep print:hidden"
               >
                 Vytlačiť menu
               </button>
               <a
                 href={PHONE_HREF}
                 data-testid="daily-call-button"
-                className="inline-flex h-11 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark"
+                className="inline-flex h-11 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#14110E] transition-all duration-300 hover:bg-terracotta-dark"
               >
                 <Phone size={15} /> {PHONE}
               </a>

@@ -18,7 +18,7 @@ export default function Marquee({ dark = false }) {
     <div
       data-testid="editorial-marquee"
       className={`marquee relative overflow-hidden py-5 sm:py-7 ${
-        dark ? "bg-leska-deep text-cream/80" : "bg-terracotta text-[#FDF6ED]"
+        dark ? "bg-leska-deep text-cream/80" : "bg-terracotta text-[#14110E]"
       }`}
     >
       <div className="marquee-track flex w-max">

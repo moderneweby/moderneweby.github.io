@@ -112,7 +112,7 @@ export default function Eventy() {
                       </p>
                     </div>
                     {i === 1 && (
-                      <span className="rounded-full bg-terracotta px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#FDF6ED]">
+                      <span className="rounded-full bg-terracotta px-3 py-1 text-[0.6rem] font-bold uppercase tracking-[0.14em] text-[#14110E]">
                         Najobľúbenejšie
                       </span>
                     )}
@@ -142,7 +142,7 @@ export default function Eventy() {
                 Porozprávajte nám <span className="italic text-zlato">o svojom sviatku</span>
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-cream/70">
-              Vyplňte dopyt a do 48 hodín sa vám ozveme s návrhom menu a termínom. Alebo rovno zavolajte — pec vždy
+              Vyplňte dopyt a do 48 hodín sa vám ozveme s návrhom menu a termínom. Alebo rovno zavolajte, pec vždy
               radi ukážeme.
             </p>
             <div className="relative mt-10 hidden lg:block">
@@ -152,7 +152,7 @@ export default function Eventy() {
               <a
                 href={PHONE_HREF}
                 data-testid="event-call-button"
-                className="absolute -bottom-5 right-6 inline-flex h-12 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-colors hover:bg-terracotta-dark"
+                className="absolute -bottom-5 right-6 inline-flex h-12 items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#14110E] transition-colors hover:bg-terracotta-dark"
               >
                 {PHONE}
               </a>
@@ -178,7 +178,7 @@ export default function Eventy() {
                     <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-leska-ink/65">
                       Ďakujeme! Dopyt máme zapísaný a do 48 hodín sa vám ozveme s návrhom oslavy.
                     </p>
-                    <p className="mt-5 inline-block rounded-full bg-leska/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
+                    <p className="mt-5 inline-block rounded-full bg-cream/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
                       Číslo dopytu: {refCode}
                     </p>
                   </motion.div>
@@ -233,7 +233,7 @@ export default function Eventy() {
                       type="submit"
                       data-testid="event-form-submit"
                       disabled={status === "sending"}
-                      className="col-span-2 mt-1 inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark active:scale-[0.98] disabled:opacity-70"
+                      className="col-span-2 mt-1 inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#14110E] transition-all duration-300 hover:bg-terracotta-dark active:scale-[0.98] disabled:opacity-70"
                     >
                       {status === "sending" ? (
                         <>

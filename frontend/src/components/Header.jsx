@@ -65,7 +65,7 @@ export default function Header() {
               type="button"
               data-testid="header-reserve-button"
               onClick={openReservation}
-              className="hidden md:inline-flex h-11 cursor-pointer items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark hover:-translate-y-0.5 active:scale-[0.97]"
+              className="hidden md:inline-flex h-11 cursor-pointer items-center gap-2 rounded-full bg-terracotta px-6 text-[0.75rem] font-semibold uppercase tracking-[0.16em] text-[#14110E] transition-all duration-300 hover:bg-terracotta-dark hover:-translate-y-0.5 active:scale-[0.97]"
             >
               Rezervovať
             </button>
@@ -131,7 +131,7 @@ export default function Header() {
               <a
                 href={PHONE_HREF}
                 data-testid="mobile-menu-call-button"
-                className="flex h-12 items-center justify-center gap-2.5 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED]"
+                className="flex h-12 items-center justify-center gap-2.5 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#14110E]"
               >
                 <Phone size={16} /> {PHONE}
               </a>

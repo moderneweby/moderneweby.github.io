@@ -55,21 +55,21 @@ module.exports = {
           '5': 'hsl(var(--chart-5))'
         },
         leska: {
-          DEFAULT: '#2F4A3A',
-          deep: '#22352B',
-          ink: '#1A2620'
+          DEFAULT: '#2C2722',
+          deep: '#0D0C0A',
+          ink: '#F3ECE0'
         },
         smotana: {
-          DEFAULT: '#F5EFE6',
-          dusk: '#E8DFD3'
+          DEFAULT: '#171412',
+          dusk: '#211D19'
         },
         cream: '#F5EFE6',
         terracotta: {
-          DEFAULT: '#B5532F',
-          dark: '#9A4425',
-          light: '#C96A45'
+          DEFAULT: '#E2691F',
+          dark: '#C4561A',
+          light: '#F28C4B'
         },
-        zlato: '#D4A359'
+        zlato: '#DBA85C'
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],

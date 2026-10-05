@@ -5,7 +5,7 @@ import { ADDRESS, EMAIL, HOURS, NAV, PHONE, PHONE_HREF } from "../data/content";
 
 export default function Footer() {
   return (
-    <footer className="bg-leska-ink text-cream/75">
+    <footer className="bg-leska-deep text-cream/75">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 py-16 grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <Logo />
@@ -59,7 +59,7 @@ export default function Footer() {
       <div className="border-t border-cream/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-5 py-6 text-xs text-cream/40 sm:flex-row sm:px-8">
           <span>© {new Date().getFullYear()} Soľ &amp; Pec. Všetky práva vyhradené.</span>
-          <span data-testid="footer-fictional-note">Soľ &amp; Pec je fiktívna reštaurácia — web vznikol pre portfólio.</span>
+          <span data-testid="footer-fictional-note">Soľ &amp; Pec je fiktívna reštaurácia, web vznikol pre portfólio.</span>
         </div>
       </div>
     </footer>

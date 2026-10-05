@@ -52,7 +52,7 @@ export default function Galeria() {
               onClick={() => setFilter(f.k)}
               className={`cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ${
                 filter === f.k
-                  ? "bg-leska text-cream"
+                  ? "bg-cream text-leska-deep"
                   : "text-leska-ink/65 ring-1 ring-leska-ink/15 hover:text-leska-ink hover:ring-leska-ink/30"
               }`}
             >
@@ -89,7 +89,7 @@ export default function Galeria() {
         {sel !== null && items[sel] && (
           <motion.div
             data-testid="lightbox"
-            className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-leska-ink/95 p-4 sm:p-10"
+            className="fixed inset-0 z-[90] flex flex-col items-center justify-center bg-black/95 p-4 sm:p-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

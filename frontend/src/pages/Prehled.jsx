@@ -23,7 +23,7 @@ function RezRow({ r }) {
       <p className="font-serif text-lg text-leska-ink">{r.meno}</p>
       <span className="text-sm text-leska-ink/60">{r.telefon}</span>
       <span className="ml-auto text-sm font-medium text-terracotta">{fmtDate(r.datum)} · {r.cas}</span>
-      <span className="rounded-full bg-leska/10 px-3 py-0.5 text-xs font-semibold text-leska">{r.hostia} os.</span>
+      <span className="rounded-full bg-zlato/10 px-3 py-0.5 text-xs font-semibold text-zlato">{r.hostia} os.</span>
       {r.poznamka && <p className="w-full text-sm text-leska-ink/55">„{r.poznamka}“</p>}
     </div>
   );
@@ -35,7 +35,7 @@ function DopRow({ d }) {
       <p className="font-serif text-lg text-leska-ink">{d.meno}</p>
       <span className="rounded-full bg-terracotta/10 px-3 py-0.5 text-xs font-semibold text-terracotta">{d.typ}</span>
       <span className="ml-auto text-sm font-medium text-terracotta">{fmtDate(d.datum)}</span>
-      <span className="rounded-full bg-leska/10 px-3 py-0.5 text-xs font-semibold text-leska">{d.hostia} os.</span>
+      <span className="rounded-full bg-zlato/10 px-3 py-0.5 text-xs font-semibold text-zlato">{d.hostia} os.</span>
       <p className="w-full text-sm text-leska-ink/60">{d.email} · {d.telefon}</p>
       {d.sprava && <p className="w-full text-sm text-leska-ink/55">„{d.sprava}“</p>}
     </div>
@@ -82,7 +82,7 @@ export default function Prehled() {
             </span>
             <h1 className="mt-5 font-serif text-4xl tracking-tight sm:text-5xl">Rezervačná kniha</h1>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-cream/70">
-              Všetky rezervácie stolov a dopyty na eventy z webu. Stránka nie je v navigácii — nájdete ju na
+              Všetky rezervácie stolov a dopyty na eventy z webu. Stránka nie je v navigácii, nájdete ju na
               adrese /prehled.
             </p>
             <button
@@ -108,7 +108,7 @@ export default function Prehled() {
                 data-testid={`prehled-tab-${t.k}`}
                 onClick={() => setTab(t.k)}
                 className={`cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 ${
-                  tab === t.k ? "bg-leska text-cream" : "text-leska-ink/65 ring-1 ring-leska-ink/15 hover:text-leska-ink"
+                  tab === t.k ? "bg-cream text-leska-deep" : "text-leska-ink/65 ring-1 ring-leska-ink/15 hover:text-leska-ink"
                 }`}
               >
                 {t.l} <span className="ml-1 text-xs opacity-70">({loading ? "…" : count})</span>
@@ -151,7 +151,7 @@ export default function Prehled() {
         </div>
 
         <p className="mt-10 flex items-center gap-2 text-xs text-leska-ink/40">
-          <UtensilsCrossed size={13} /> Soľ &amp; Pec — interný prehľad, fiktívna reštaurácia pre portfólio.
+          <UtensilsCrossed size={13} /> Soľ &amp; Pec, interný prehľad, fiktívna reštaurácia pre portfólio.
         </p>
       </section>
     </div>

@@ -67,7 +67,7 @@ export default function ReservationModal() {
         >
           <div
             data-testid="reservation-modal-backdrop"
-            className="absolute inset-0 bg-leska-ink/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/75 backdrop-blur-sm"
             onClick={closeReservation}
           />
           <motion.div
@@ -102,7 +102,7 @@ export default function ReservationModal() {
                 <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed text-leska-ink/65">
                   Rezerváciu sme zapísali do našej rezervačnej knihy. Potvrdenie vám príde SMS-kou ešte dnes.
                 </p>
-                <p className="mt-5 inline-block rounded-full bg-leska/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
+                <p className="mt-5 inline-block rounded-full bg-cream/5 px-5 py-2 font-mono text-sm text-leska-ink/70">
                   Číslo rezervácie: {refCode}
                 </p>
                 <button
@@ -117,7 +117,7 @@ export default function ReservationModal() {
             ) : (
               <>
                 <div className="mb-6 flex items-center gap-3">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-leska text-cream">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-terracotta/15 text-terracotta">
                     <Calendar size={18} />
                   </span>
                   <div>
@@ -163,7 +163,7 @@ export default function ReservationModal() {
                     type="submit"
                     data-testid="reservation-submit-button"
                     disabled={status === "sending"}
-                    className="col-span-2 mt-1 inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#FDF6ED] transition-all duration-300 hover:bg-terracotta-dark active:scale-[0.98] disabled:opacity-70"
+                    className="col-span-2 mt-1 inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-full bg-terracotta text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-[#14110E] transition-all duration-300 hover:bg-terracotta-dark active:scale-[0.98] disabled:opacity-70"
                   >
                     {status === "sending" ? (
                       <>

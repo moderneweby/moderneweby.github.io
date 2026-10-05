@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Clock, Flame, Hourglass, Users, Wheat } from "lucide-react";
+import { ArrowRight, Clock, Flame, Users } from "lucide-react";
 import { BtnButton, BtnLink } from "../components/Btn";
 import Marquee from "../components/Marquee";
 import { MaskLines, Reveal } from "../components/Reveal";
@@ -15,9 +15,9 @@ const DISHES = [
 ];
 
 const VALUES = [
-  { icon: Flame, n: "Oheň", t: "Žiadny plyn, žiadna elektrina. Len dub a buk, ktoré horia od rána — a dym, ktorý robí polovicu chuti." },
-  { icon: Wheat, n: "Soľ", t: "Soľ, maslo a poctivá surovina. Ochucujeme s mierou a nikdy nepridávame viac, než treba." },
-  { icon: Hourglass, n: "Čas", t: "Kvas trvá 48 hodín, rebrá celých šesť. Nemáme rýchle jedlo — máme jedlo, ktoré si berie čas." },
+  { img: IMG.embers, n: "Oheň", t: "Žiadny plyn, žiadna elektrina. Len dub a buk, ktoré horia od rána, a dym, ktorý robí polovicu chuti." },
+  { img: IMG.salt, n: "Soľ", t: "Soľ, maslo a poctivá surovina. Ochucujeme s mierou a nikdy nepridávame viac, než treba." },
+  { img: IMG.hourglass, n: "Čas", t: "Kvas trvá 48 hodín, rebrá celých šesť. Nemáme rýchle jedlo. Máme jedlo, ktoré si berie čas." },
 ];
 
 export default function Home() {
@@ -36,7 +36,7 @@ export default function Home() {
         <div className="relative mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-14 px-5 pb-24 pt-28 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-32 lg:pt-24">
           <div className="lg:col-span-7">
             <MaskLines
-              lines={["Reštaurácia — Bratislava — Pec na drevo"]}
+              lines={["Reštaurácia v Bratislave s pecou na drevo"]}
               delay={0.15}
               lineClass="eyebrow text-zlato"
             />
@@ -47,7 +47,7 @@ export default function Home() {
               />
             </h1>
             <MaskLines
-              lines={["— a dym, ktorý voňá celou ulicou."]}
+              lines={["A dym, ktorý voňá celou ulicou."]}
               delay={0.85}
               className="mt-4 block font-serif text-[clamp(1.2rem,3vw,1.8rem)] italic text-zlato"
             />
@@ -87,7 +87,8 @@ export default function Home() {
               transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
               className="relative mx-auto max-w-sm lg:max-w-none"
             >
-              <div className="overflow-hidden rounded-t-[999px] rounded-b-3xl ring-1 ring-cream/15">
+              <div className="pointer-events-none absolute -inset-10 rounded-full bg-terracotta/25 blur-3xl" />
+              <div className="relative overflow-hidden rounded-t-[999px] rounded-b-3xl ring-1 ring-cream/15">
                 <img
                   src={IMG.heroFlame}
                   alt="Oheň v peci na drevo"
@@ -138,13 +139,21 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-3 lg:col-span-7">
             {VALUES.map((v, i) => (
               <Reveal key={v.n} delay={i * 0.12} className="h-full">
-                <div className="card-light group h-full p-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(26,38,32,0.35)]">
-                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-leska text-cream transition-colors duration-500 group-hover:bg-terracotta">
-                    <v.icon size={20} />
-                  </span>
-                  <h3 className="mt-6 font-serif text-2xl text-leska-ink">{v.n}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-leska-ink/65">{v.t}</p>
-                  <span className="mt-6 block font-serif text-4xl text-leska-ink/10">0{i + 1}</span>
+                <div
+                  data-testid={`home-value-card-${i}`}
+                  className="card-light group h-full overflow-hidden transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-24px_rgba(0,0,0,0.6)]"
+                >
+                  <div className="relative overflow-hidden">
+                    <img
+                      src={v.img}
+                      alt={v.n}
+                      loading="lazy"
+                      className="aspect-[4/3] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-leska-deep/80 via-transparent to-transparent" />
+                    <h3 className="absolute bottom-4 left-5 font-serif text-2xl text-cream">{v.n}</h3>
+                  </div>
+                  <p className="p-6 text-sm leading-relaxed text-leska-ink/65">{v.t}</p>
                 </div>
               </Reveal>
             ))}
@@ -212,7 +221,7 @@ export default function Home() {
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-leska-ink/65">
               Klenbový sál pri žiacej peci, dlhé stoly, sviečky a menu, ktoré upečieme presne pre vašu oslavu.
-              Kapacita do 40 hostí — práve toľko, aby ste sa stihli pozdraviť so všetkými.
+              Kapacita do 40 hostí je práve toľko, aby ste sa stihli pozdraviť so všetkými.
             </p>
             <ul className="mt-7 space-y-3 text-sm text-leska-ink/75">
               {["Sál pri peci pre 40 hostí", "Menu z dreva, nie z katalógu", "Svadobný koláč z našej pekárne"].map((li) => (
@@ -232,7 +241,7 @@ export default function Home() {
               <div className="overflow-hidden rounded-t-[999px] rounded-b-3xl ring-1 ring-leska-ink/10">
                 <img src={IMG.weddingGarden} alt="Svadobné stoly v záhrade" loading="lazy" className="aspect-[4/5] w-full object-cover" />
               </div>
-              <div className="absolute -bottom-6 -left-4 rounded-2xl bg-terracotta px-6 py-5 text-[#FDF6ED] shadow-xl sm:-left-8">
+              <div className="absolute -bottom-6 -left-4 rounded-2xl bg-terracotta px-6 py-5 text-[#14110E] shadow-xl sm:-left-8">
                 <p className="font-serif text-3xl leading-none">40</p>
                 <p className="mt-1 text-[0.62rem] font-semibold uppercase tracking-[0.2em]">hostí maximálne</p>
               </div>
@@ -248,25 +257,25 @@ export default function Home() {
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           <Reveal>
             <p className="font-serif text-2xl italic leading-snug sm:text-4xl sm:leading-snug">
-              „Najlepšie rebrá, aké sme kedy jedli. Oslava päťdesiatky maminej bola ako z filmu — sviečky, klenby a ten
+              „Najlepšie rebrá, aké sme kedy jedli. Oslava päťdesiatky maminej bola ako z filmu: sviečky, klenby a ten
               dym.“
             </p>
             <p className="mt-7 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-cream/50">
-              Katarína B. — rodinná oslava
+              Katarína B., rodinná oslava
             </p>
           </Reveal>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-terracotta py-20 text-[#FDF6ED] sm:py-24">
+      <section className="bg-terracotta py-20 text-[#14110E] sm:py-24">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-8 px-5 sm:px-8">
           <Reveal>
             <h2 className="max-w-xl font-serif text-3xl leading-tight sm:text-4xl lg:text-5xl">
               Máte miesto pri našom stole?
             </h2>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-[#FDF6ED]/85">
-              Rezervujte online, alebo nám zavolajte — stôl pri peci sa nájde vždy.
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-[#14110E]/80">
+              Rezervujte online alebo nám zavolajte. Stôl pri peci sa nájde vždy.
             </p>
           </Reveal>
           <Reveal delay={0.15}>
@@ -277,7 +286,7 @@ export default function Home() {
               <a
                 href={PHONE_HREF}
                 data-testid="home-footer-call-cta"
-                className="inline-flex h-12 items-center gap-2.5 rounded-full border border-[#FDF6ED]/50 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:bg-[#FDF6ED] hover:text-terracotta"
+                className="inline-flex h-12 items-center gap-2.5 rounded-full border border-[#14110E]/40 px-7 text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-all duration-300 hover:bg-[#14110E] hover:text-terracotta"
               >
                 {PHONE}
               </a>
