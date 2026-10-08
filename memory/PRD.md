@@ -47,3 +47,4 @@ Moderný web pre fiktívnu slovenskú reštauráciu "Soľ & Pec" (kuchyňa z pec
 - Sekcia Oheň / Soľ / Čas na úvode: ikony nahradené fotografiami (žeravé uhlíky, soľ, presýpacie hodiny), číslovanie 01–03 odstránené.
 - Stále menu: fotografie pri predjedlách, hlavných jedlách a dezertoch (15 ks, pole `img` v MENU v content.js). Nápoje bez obrázkov.
 - Odstránené krátke dekoratívne čiarky pred eyebrow nadpismi (všetky stránky), „solený karamel“ → „slaný karamel“, box „Lunch set“ prepísaný na „Obedové menu“ so zrozumiteľnou vetou. Overené testing agentom (test_reports/iteration_1.json).
+- Textové úpravy (vonia, dusia na dreve, „Chuť z pece na drevo“ v hero aj v <title>, „v soli“, odstránený svadobný koláč, pätička „Rodinná reštaurácia v Bratislave.“). Nový komponent components/Testimonials.jsx: 3 recenzie, automatické prepínanie každých 6 s + bodky na ručné prepnutie. Overené (test_reports/iteration_2.json).
