@@ -2,7 +2,8 @@ import { Flame, Leaf, Phone } from "lucide-react";
 import PageHero from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
 import { BtnButton } from "../components/Btn";
-import { MENU, IMG, PHONE_HREF } from "../data/content";
+import { ALLERGENS, MENU, IMG, PHONE_HREF } from "../data/content";
+import { Allergens } from "../components/Allergens";
 import { useUI } from "../context/ui";
 
 function scrollTo(id) {
@@ -80,6 +81,9 @@ export default function Menu() {
                         <span className="whitespace-nowrap font-serif text-lg italic text-terracotta">{item.p} €</span>
                       </div>
                       <p className="mt-1.5 text-sm text-leska-ink/55">{item.d}</p>
+                      <div className="mt-1.5">
+                        <Allergens list={item.al} testId={`menu-allergens-${cat.id}-${i}`} />
+                      </div>
                     </div>
                   </div>
                 </Reveal>
@@ -88,10 +92,22 @@ export default function Menu() {
           </section>
         ))}
 
+        <div data-testid="menu-allergen-legend" className="mt-10 rounded-3xl bg-cream/5 p-6 sm:p-8">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-zlato">Zoznam alergénov</p>
+          <ul className="mt-4 grid gap-x-8 gap-y-2 text-sm text-leska-ink/65 sm:grid-cols-2 lg:grid-cols-3">
+            {ALLERGENS.map(([num, name]) => (
+              <li key={num} className="flex gap-3">
+                <span className="w-6 shrink-0 font-semibold text-leska-ink/80">{num}</span>
+                <span>{name}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div className="flex flex-wrap items-center justify-between gap-6 py-14">
           <p className="max-w-md text-sm leading-relaxed text-leska-ink/60">
             <Leaf size={14} className="mr-2 inline text-zlato" />
-            Vegetariánske jedlá označujeme priamo v popise. Alergény vám radi povie každý z kuchyne.
+            Vegetariánske jedlá označujeme priamo v popise.
           </p>
           <div className="flex flex-wrap items-center gap-4 print:hidden">
             <button

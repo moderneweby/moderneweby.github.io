@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Clock, Flame, Phone, Soup, UtensilsCrossed, CakeSlice } from "lucide-react";
 import PageHero from "../components/PageHero";
 import { Reveal } from "../components/Reveal";
+import { Allergens } from "../components/Allergens";
 import { DAILY_NOTE, DENNE, IMG, PHONE, PHONE_HREF } from "../data/content";
 
 const todayIdx = () => {
@@ -74,6 +75,9 @@ export default function DenneMenu() {
               <span className="dotted-leader" />
               <span className="font-serif text-xl italic text-terracotta">{day.polievka.p} €</span>
             </div>
+            <div className="mt-1.5">
+              <Allergens list={day.polievka.al} testId="daily-allergens-polievka" />
+            </div>
           </div>
 
           <div className="mt-10">
@@ -81,7 +85,7 @@ export default function DenneMenu() {
               <UtensilsCrossed size={14} /> Hlavné jedlá
             </p>
             <div className="mt-3 space-y-5">
-              {day.hlavne.map((h) => (
+              {day.hlavne.map((h, idx) => (
                 <div key={h.n}>
                   <div className="flex items-baseline gap-3">
                     <h3 className="font-serif text-lg sm:text-xl text-leska-ink">
@@ -94,6 +98,9 @@ export default function DenneMenu() {
                     </h3>
                     <span className="dotted-leader" />
                     <span className="whitespace-nowrap font-serif text-lg italic text-terracotta">{h.p} €</span>
+                  </div>
+                  <div className="mt-1">
+                    <Allergens list={h.al} testId={`daily-allergens-hlavne-${idx}`} />
                   </div>
                 </div>
               ))}
@@ -108,6 +115,9 @@ export default function DenneMenu() {
               <p className="font-serif text-lg text-leska-ink">{day.dezert.n}</p>
               <span className="dotted-leader" />
               <span className="whitespace-nowrap font-serif text-lg italic text-terracotta">{day.dezert.p} €</span>
+            </div>
+            <div className="mt-1">
+              <Allergens list={day.dezert.al} testId="daily-allergens-dezert" />
             </div>
           </div>
         </motion.div>
