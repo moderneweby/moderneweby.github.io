@@ -10,8 +10,7 @@ export default function Footer() {
         <div className="md:col-span-5">
           <Logo />
           <p className="mt-5 max-w-sm text-sm leading-relaxed text-cream/60">
-            Rodinná reštaurácia s pecou na drevo. Varíme na dubovom a bukovom dreve,
-            chlieb miesime ručne a oslavy držíme v malom a peknom.
+            Rodinná reštaurácia v Bratislave.
           </p>
         </div>
         <div className="md:col-span-2">

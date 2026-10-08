@@ -22,7 +22,7 @@ const PACKAGES = [
     n: "Malá svadba",
     cap: "do 40 hostí",
     price: "od 49 € / os.",
-    points: ["Uvítací drink a pohostenie", "Štyri chody priamo z pece", "Svadobný koláč z našej pekárne", "Dekorácia stola a sviečky"],
+    points: ["Uvítací drink a pohostenie", "Štyri chody priamo z pece", "Dekorácia stola a sviečky"],
   },
   {
     n: "Firemná večera",

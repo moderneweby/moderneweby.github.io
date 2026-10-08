@@ -5,6 +5,7 @@ import { ArrowRight, Clock, Flame, Users } from "lucide-react";
 import { BtnButton, BtnLink } from "../components/Btn";
 import Marquee from "../components/Marquee";
 import { MaskLines, Reveal } from "../components/Reveal";
+import Testimonials from "../components/Testimonials";
 import { useUI } from "../context/ui";
 import { IMG, PHONE, PHONE_HREF } from "../data/content";
 
@@ -42,17 +43,17 @@ export default function Home() {
             />
             <h1 className="mt-6 font-serif text-[clamp(3rem,9vw,6.4rem)] leading-[0.98] tracking-tight">
               <MaskLines
-                lines={[{ t: "Kuchyňa" }, { t: "z pece" }, { t: "na drevo.", c: "italic text-zlato" }]}
+                lines={[{ t: "Chuť" }, { t: "z pece" }, { t: "na drevo.", c: "italic text-zlato" }]}
                 delay={0.3}
               />
             </h1>
             <MaskLines
-              lines={["A dym, ktorý voňá celou ulicou."]}
+              lines={["A dym, ktorý vonia celou ulicou."]}
               delay={0.85}
               className="mt-4 block font-serif text-[clamp(1.2rem,3vw,1.8rem)] italic text-zlato"
             />
             <MaskLines
-              lines={["Rodinná reštaurácia, kde sa chlieb miesi rukami, rebrá celý deň dusia v dreve a víno tečie z Malých Karpát."]}
+              lines={["Rodinná reštaurácia, kde sa chlieb miesi rukami, rebrá celý deň dusia na dreve a víno tečie z Malých Karpát."]}
               delay={1.0}
               className="mt-6 block max-w-md text-base leading-relaxed text-cream/70"
             />
@@ -131,7 +132,7 @@ export default function Home() {
                 Tri prísady, ktoré <span className="italic text-terracotta">menia chuť</span>
               </h2>
               <p className="mt-6 max-w-md leading-relaxed text-leska-ink/65">
-                Veríme, že skvelé jedlo nevzniká v rukách šéfkuchára, ale v ohni, na prepásenej soli a v čase. Presne v
+                Veríme, že skvelé jedlo nevzniká v rukách šéfkuchára, ale v ohni, v soli a v čase. Presne v
                 tomto poradí.
               </p>
             </Reveal>
@@ -224,7 +225,7 @@ export default function Home() {
               Kapacita do 40 hostí je práve toľko, aby ste sa stihli pozdraviť so všetkými.
             </p>
             <ul className="mt-7 space-y-3 text-sm text-leska-ink/75">
-              {["Sál pri peci pre 40 hostí", "Menu z dreva, nie z katalógu", "Svadobný koláč z našej pekárne"].map((li) => (
+              {["Sál pri peci pre 40 hostí", "Menu z dreva, nie z katalógu"].map((li) => (
                 <li key={li} className="flex items-center gap-3">
                   <span className="h-1.5 w-1.5 rounded-full bg-terracotta" /> {li}
                 </li>
@@ -252,20 +253,7 @@ export default function Home() {
 
       <Marquee dark />
 
-      {/* CITÁCIA */}
-      <section className="bg-leska-deep py-24 text-cream sm:py-28">
-        <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
-          <Reveal>
-            <p className="font-serif text-2xl italic leading-snug sm:text-4xl sm:leading-snug">
-              „Najlepšie rebrá, aké sme kedy jedli. Oslava päťdesiatky maminej bola ako z filmu: sviečky, klenby a ten
-              dym.“
-            </p>
-            <p className="mt-7 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-cream/50">
-              Katarína B., rodinná oslava
-            </p>
-          </Reveal>
-        </div>
-      </section>
+      <Testimonials />
 
       {/* CTA */}
       <section className="bg-terracotta py-20 text-[#14110E] sm:py-24">
